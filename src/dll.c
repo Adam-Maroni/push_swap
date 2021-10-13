@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:38:18 by amaroni           #+#    #+#             */
-/*   Updated: 2021/09/28 17:03:53 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/13 16:09:04 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void ft_free_dll(t_dll **dll)
 	{
 		(*dll) = (*dll)->next;
 		free((*dll)->previous->content);
+		(*dll)->previous->content = NULL;
 		free((*dll)->previous);
+		(*dll)->previous = NULL;
 	}
 	free((*dll)->content);
 	free((*dll));
