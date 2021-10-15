@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:56:23 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/15 14:11:25 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/15 20:16:59 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,42 @@ void	ft_dll_addback(t_dll **adll, t_dll *new)
 		new->next = (*adll);
 		(*adll)->previous = new;
 	}
+}
+
+t_dll	*ft_dll_cpy(t_dll *orig)
+{
+	t_dll	*cpy;
+	t_dll	*start;	
+
+	if (!orig)
+		return (NULL);
+	cpy = NULL;
+	start = orig;
+	ft_dll_addback(&cpy, ft_dll_new(start->content));
+	orig = orig->next;
+	while (orig && orig != start)
+	{
+		ft_dll_addback(&cpy, ft_dll_new(orig->content));
+		orig = orig->next;
+	}
+	return (cpy);
+}
+
+void	ft_dll_delone(t_dll **dll)
+{
+	t_dll	*next;
+	t_dll	*previous;
+	t_dll	*element;
+
+	if (!dll || !(*dll))
+		return ;
+	element = *dll;
+	next = element->next;
+	previous = element->previous;
+	element->previous->next = next;
+	element->next->previous = previous;
+	free(element->content);
+	free(element);
 }
 
 void	ft_free_dll(t_dll **dll)
