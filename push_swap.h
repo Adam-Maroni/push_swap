@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/15 13:33:01 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/15 16:09:11 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_dll{
 /* dll.c */
 t_dll	*ft_dll_new(char *new_content);
 void	ft_dll_addback(t_dll **adll, t_dll *new);
+t_dll	*ft_dll_cpy(t_dll *orig);
 void	ft_free_dll(t_dll **dll);
 
 #endif
