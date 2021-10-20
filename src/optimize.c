@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:36:10 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/19 17:51:21 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/20 17:39:29 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,21 @@ t_dll	*ft_clean_instr(t_dll **instr)
 	rt = NULL;
 	if (!instr || !*instr)
 		return (NULL);
-	if (*instr == (*instr)->next)
-		return (*instr);
 	(*instr)->previous->next = NULL;
 	one = *instr;
 	while (one)
 		if (ft_is_opposite_instr_adjacent(one))
 			one = one->next->next;
-		else if (ft_combine_instr(one))
-		{
-			ft_dll_addback(&rt, ft_dll_new(ft_combine_instr(one)));
-			one = one->next->next;
-		}
-		else
-		{
-			ft_dll_addback(&rt, ft_dll_new(one->content));
-			one = one->next;
-		}
+	else if (ft_combine_instr(one))
+	{
+		ft_dll_addback(&rt, ft_dll_new(ft_combine_instr(one)));
+		one = one->next->next;
+	}
+	else
+	{
+		ft_dll_addback(&rt, ft_dll_new(one->content));
+		one = one->next;
+	}
 	(*instr)->previous->next = (*instr);
 	ft_free_dll(instr);
 	return (rt);
