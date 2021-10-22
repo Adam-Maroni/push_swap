@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 00:31:01 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/18 09:54:07 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/21 16:55:41 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_rx(t_dll **start)
 {
+	if (!start)
+		return (0);
 	if (*start)
 	{
 		*start = (*start)->next;
@@ -24,6 +26,8 @@ int	ft_rx(t_dll **start)
 
 int	ft_rrx(t_dll **start)
 {
+	if (!start)
+		return (0);
 	if (*start)
 	{
 		*start = (*start)->previous;

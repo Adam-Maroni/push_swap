@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/19 14:42:53 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/21 12:41:07 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_is_over(t_dll *a, t_dll *b);
 int		ft_is_in_order(t_dll *dll);
 int		*ft_dll_to_int(t_dll *dll);
 int		ft_dll_size(t_dll *start);
+void	ft_change_content(t_dll *ptr, char *new);
 /* instructions_list.c */
 void	ft_print_inst_list(t_dll *inst);
 void	ft_execute_instr_list(t_dll **a, t_dll **b, t_dll *instr);
@@ -58,5 +59,9 @@ void	ft_execute_instr_list(t_dll **a, t_dll **b, t_dll *instr);
 t_dll	*ft_clean_instr(t_dll **instr);
 int		ft_is_opposite_instr_adjacent(t_dll *instr);
 char	*ft_combine_instr(t_dll *instr);
+/* resolve.c */
+t_dll	*ft_resolve_for_2_and_3(t_dll *a);
+int	ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
+
 
 #endif

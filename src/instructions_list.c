@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:50:06 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/18 15:50:27 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/22 15:05:03 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_execute_instr_list(t_dll **a, t_dll **b, t_dll *instr)
 {
 	t_dll	*start;
 
-	if (!instr)
+	if (!instr || !a || !b)
 		return ;
 	start = instr;
 	ft_execute_instr(a, b, instr->content);

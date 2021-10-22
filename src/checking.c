@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 14:37:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/18 12:18:01 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/22 13:34:38 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,10 @@ int	ft_dll_size(t_dll *start)
 		start = start->next;
 	}
 	return (i);
+}
+
+void	ft_change_content(t_dll *ptr, char *new)
+{
+	free(ptr->content);
+	ptr->content = ft_strdup(new);
 }

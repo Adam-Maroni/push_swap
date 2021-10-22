@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:56:23 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/15 20:21:53 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/21 19:55:55 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_dll_addback(t_dll **adll, t_dll *new)
 {
 	t_dll	*last;
 
-	if (!new)
+	if (!new || !adll)
 		return ;
-	if (!adll || !(*adll))
+	if (!(*adll))
 		*adll = new;
 	else
 	{

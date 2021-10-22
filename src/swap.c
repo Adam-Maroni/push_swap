@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 00:29:10 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/18 09:52:59 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/21 12:57:04 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_sx(t_dll *start)
 {
+	if (!start)
+		return ;
 	if (start != start->next)
 		ft_dll_switch_content(start, start->next);
 }
