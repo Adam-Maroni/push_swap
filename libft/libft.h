@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 11:58:55 by amaroni           #+#    #+#             */
-/*   Updated: 2021/08/12 22:31:05 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 20:02:40 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -57,19 +57,19 @@ int					ft_putstr_ret(const char *string);
 char				*ft_strchr(char *s, int c);
 char				*ft_strrchr(char *s, int c);
 char				*ft_strnstr(const char *big,
-		const char *little, size_t len);
+						const char *little, size_t len);
 char				*ft_strdup(char *s);
 char				*ft_substr(char *s, unsigned int start, size_t len);
 char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strtrim(char *s1, char *set);
-char				**ft_split(char *s, char c);
+char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char *s, char (*f)(unsigned int, char));
 char				*ft_uitoa(unsigned int n);
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstmap(t_list *lst, void *(*f) (void *),
-		void (*del)(void *));
+						void (*del)(void *));
 unsigned long		ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, char *src, size_t size);
 size_t				ft_strlcat(char *dst, char *src, size_t size);

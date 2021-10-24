@@ -6,23 +6,27 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 08:01:16 by amaroni           #+#    #+#             */
-/*   Updated: 2021/03/21 20:47:32 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 18:11:44 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		count_digit(unsigned int n)
+static int	count_digit(unsigned int n)
 {
 	int	cp;
 
 	cp = 1;
-	while ((n /= 10) > 0)
+	n /= 10;
+	while (n > 0)
+	{
 		cp++;
+		n /= 10;
+	}
 	return (cp);
 }
 
-static void		add_element(char *array, int i, int start, unsigned int n)
+static void	add_element(char *array, int i, int start, unsigned int n)
 {
 	array[i] = '\0';
 	while (--i >= start)
@@ -32,7 +36,7 @@ static void		add_element(char *array, int i, int start, unsigned int n)
 	}
 }
 
-char			*ft_uitoa(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
 	char	*array;
 
@@ -40,11 +44,12 @@ char			*ft_uitoa(unsigned int n)
 		return (ft_strdup("0"));
 	else
 	{
-		if (!(array = (char*)malloc((count_digit((unsigned int)(n)) + 1)
-						* sizeof(*array))))
+		array = (char *)malloc((count_digit((unsigned int)(n)) + 1)
+				* sizeof(*array));
+		if (!array)
 			return (NULL);
 		add_element(array, count_digit((unsigned int)(n)),
-				0, (unsigned int)(n));
+			0, (unsigned int)(n));
 	}
 	return (array);
 }

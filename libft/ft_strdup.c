@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:19:02 by amaroni           #+#    #+#             */
-/*   Updated: 2021/09/25 19:35:59 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 19:00:05 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strdup(char *s)
 
 	if (!s)
 		return (NULL);
-	if (!(rt_pointer = (char*)malloc((ft_strlen(s) + 1) * sizeof(char))))
+	rt_pointer = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!rt_pointer)
 		return (NULL);
 	i = 0;
 	while (s[i])

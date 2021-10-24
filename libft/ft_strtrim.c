@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:18:24 by amaroni           #+#    #+#             */
-/*   Updated: 2020/12/17 16:08:26 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 18:15:46 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	isfound_fromfront(char *s2, char *start)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while ((s2[i] != *start) && (i < ft_strlen(s2)))
@@ -29,7 +29,7 @@ static int	isfound_fromfront(char *s2, char *start)
 
 static int	isfound_fromback(char *s2, char *end)
 {
-	unsigned long i;
+	unsigned long	i;
 
 	i = 0;
 	while ((i < ft_strlen(s2)) && (s2[i] != *end))
@@ -40,10 +40,10 @@ static int	isfound_fromback(char *s2, char *end)
 		return (0);
 }
 
-char		*ft_strtrim(char *s1, char *s2)
+char	*ft_strtrim(char *s1, char *s2)
 {
-	char *start;
-	char *end;
+	char	*start;
+	char	*end;
 
 	if (!s1)
 		return (NULL);
@@ -60,7 +60,7 @@ char		*ft_strtrim(char *s1, char *s2)
 		end--;
 	if (end > start)
 		return (ft_substr(s1, (unsigned int)(start - s1),
-					(unsigned int)(end - start + 1)));
+			(unsigned int)(end - start + 1)));
 	else
 		return (ft_strdup(""));
 }

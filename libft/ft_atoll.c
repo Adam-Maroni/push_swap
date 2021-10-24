@@ -6,17 +6,17 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:24:04 by amaroni           #+#    #+#             */
-/*   Updated: 2021/08/12 22:30:03 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 18:14:17 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long			ft_atoll(char *nptr)
+long long	ft_atoll(char *nptr)
 {
 	unsigned long	x10;
 	int				sign;
-	long long			rt;
+	long long		rt;
 
 	rt = 0;
 	x10 = 1;

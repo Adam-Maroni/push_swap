@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 17:54:28 by amaroni           #+#    #+#             */
-/*   Updated: 2020/12/01 13:35:27 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 18:24:25 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*((char*)s + i) = '\0';
+		*((char *)s + i) = '\0';
 		i++;
 	}
 }

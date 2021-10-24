@@ -6,13 +6,13 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 11:24:04 by amaroni           #+#    #+#             */
-/*   Updated: 2020/12/06 00:01:23 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/24 18:13:17 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(char *nptr)
+int	ft_atoi(char *nptr)
 {
 	unsigned long	x10;
 	int				sign;
@@ -38,5 +38,5 @@ int			ft_atoi(char *nptr)
 		x10 /= 10;
 		nptr++;
 	}
-	return ((int)(rt) * sign);
+	return ((int)(rt)*sign);
 }
