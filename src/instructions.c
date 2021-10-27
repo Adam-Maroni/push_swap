@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:05:20 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/26 20:15:18 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:24:09 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,17 @@ void	ft_execute_and_add(t_dll **dst, t_dll *new, t_dll **a, t_dll **b)
 
 	if (!dst || !new || !a || !b)
 		return ;
-	tmp = new->next;
 	ft_execute_instr_list(a, b, new);
-	ft_dll_addback(dst, new);
+	tmp = new->next;
 	while (tmp != new)
 	{
-		ft_dll_addback(dst, tmp);
-		tmp = tmp->next;
+		new->previous->next = new->next;
+		new->next->previous = new->previous;
+		new->previous = new;
+		new->next = new;
+		ft_dll_addback(dst, new);
+		new = tmp;
+		tmp = new->next;
 	}
+	ft_dll_addback(dst, new);
 }

@@ -63,7 +63,7 @@ char	*ft_combine_instr(t_dll *instr);
 /* resolve.c */
 t_dll	*ft_resolve_for_2_and_3(t_dll *a);
 int	ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
-t_dll	*ft_resolve_for_4(t_dll **a);
+t_dll	*ft_resolve_for_4_and_5(t_dll **a);
 
 /* found.c */
 t_dll	**ft_rt_largest(t_dll *dll);

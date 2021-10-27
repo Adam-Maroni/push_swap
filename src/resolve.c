@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/27 18:30:22 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/27 20:25:17 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,31 @@ t_dll	*ft_resolve_for_2_and_3(t_dll *a)
 	return (NULL);
 }
 
-t_dll	*ft_resolve_for_4(t_dll **a)
+t_dll	*ft_resolve_for_4_and_5(t_dll **a)
 {
 	t_dll	*instr;
 	t_dll	**smallest;
 	t_dll	**b;
+	t_dll	*cpy;
 
-	instr = NULL;
 	if (!a || ft_is_in_order(*a))
 		return (NULL);
+	instr = NULL;
 	b = (t_dll **)calloc(sizeof(t_dll *), 1);
 	*b = NULL;
-	smallest = ft_rt_smallest(*a);
-	ft_execute_and_add(&instr,
-		ft_rt_best_rotation(*a, (*smallest)->content, 'a'), a, b);
-	ft_execute_and_add(&instr, ft_dll_new("pb"), a, b);
-	ft_execute_and_add(&instr, ft_resolve_for_2_and_3(*a), a, b);
-	ft_execute_and_add(&instr, ft_dll_new("pa"), a, b);
+	cpy = ft_dll_cpy(*a);
+	while (ft_dll_size(cpy) > 3)
+	{
+		smallest = ft_rt_smallest(cpy);
+		ft_execute_and_add(&instr,
+			ft_rt_best_rotation(cpy, (*smallest)->content, 'a'), &cpy, b);
+		ft_execute_and_add(&instr, ft_dll_new("pb"), &cpy, b);
+	}
+	ft_execute_and_add(&instr, ft_resolve_for_2_and_3(cpy), &cpy, b);
+	while (ft_dll_size(cpy) != ft_dll_size(*a))
+		ft_execute_and_add(&instr, ft_dll_new("pa"), &cpy, b);
 	free(b);
+	ft_free_dll(&cpy);
 	return (instr);
 }
 
