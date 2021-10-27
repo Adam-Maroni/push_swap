@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 14:05:20 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/18 09:57:39 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/26 20:15:18 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,22 @@ void	ft_execute_instr(t_dll **a, t_dll **b, char *instr)
 		ft_rrr(a, b);
 	else
 		return ;
+}
+
+/* Add to the end of dst (which is a list of instruction) new (another list)
+ * after having executed new on list a and b */
+void	ft_execute_and_add(t_dll **dst, t_dll *new, t_dll **a, t_dll **b)
+{
+	t_dll	*tmp;
+
+	if (!dst || !new || !a || !b)
+		return ;
+	tmp = new->next;
+	ft_execute_instr_list(a, b, new);
+	ft_dll_addback(dst, new);
+	while (tmp != new)
+	{
+		ft_dll_addback(dst, tmp);
+		tmp = tmp->next;
+	}
 }

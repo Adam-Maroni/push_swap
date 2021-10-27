@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/21 12:41:07 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/10/27 13:16:59 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_dll_delone(t_dll **dll);
 void	ft_free_dll(t_dll **dll);
 /* instructions.c */
 void	ft_execute_instr(t_dll **a, t_dll **b, char *instr);
+void ft_execute_and_add(t_dll **dst, t_dll *new, t_dll **a, t_dll **b);
 /* push.c */
 void	ft_px(t_dll **src, t_dll **dst);
 /* rotate.c */
@@ -62,6 +63,15 @@ char	*ft_combine_instr(t_dll *instr);
 /* resolve.c */
 t_dll	*ft_resolve_for_2_and_3(t_dll *a);
 int	ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
+t_dll	*ft_resolve_for_4(t_dll **a);
 
+/* found.c */
+t_dll	**ft_rt_largest(t_dll *dll);
+t_dll	**ft_rt_smallest(t_dll *dll);
+t_dll	**ft_rt_element(t_dll *dll, char *value);
 
+/* rotation_tools.c */
+void	ft_fill_rx(t_dll **instr, size_t nb, char stack_indicator);
+void	ft_fill_rrx(t_dll **instr, size_t nb, char stack_indicator);
+t_dll	*ft_rt_best_rotation(t_dll *dll, char *value, char stack_indicator);
 #endif
