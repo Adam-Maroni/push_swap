@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:24:43 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/03 15:52:41 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/04 09:27:43 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ t_dll	*ft_rt_best_rotation(t_dll *dll, char *value, char stack_indicator)
 		cpy = cpy->next;
 		i++;
 	}
-	if (i < ft_dll_size(cpy) / 2)
+	if (i < ft_dll_size(cpy) / 2 && i > 0)
 		ft_fill_rx(&instr, i, stack_indicator);
-	else
+	else if (i > 0)
 		ft_fill_rrx(&instr, ft_dll_size(cpy) - i, stack_indicator);
 	ft_free_dll(&cpy);
 	return (instr);

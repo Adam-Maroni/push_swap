@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/03 15:58:37 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/04 09:45:14 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,35 +81,41 @@ int	ft_try_instr(t_dll *a, t_dll *b, t_dll *instr)
 	return (rt);
 }
 
+/*
+This function return the necessary instructioons to:
+-Put element_b on top of stack b
+-Put the smallest element that is larger than b , from a, on top of stack a
+-Push from b to a
+-Reverse the rotation of a so stack a is back in ascending order
 
-/* ft_place_b_to_a():
-	ft_best_rotation to put the targeted element of b on top of b
-	ft_best_rotation to put the targeted element of a (smallest larger than target b) on top of a 
-	pa
-	ft_best_rotation to put smallest element of a to top of a
-
-
-List a must not be empty and must be in order
+There are two requirements for this function to works properly:
+List a must not be empty
+List a must be in ascending order
 */
 t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b)
 {
-	t_dll *instr;
-	t_dll *cpy_b;
-	t_dll *cpy_a;
-	char	*smallest;
+	t_dll	*instr;
+	t_dll	*cpy_b;
+	t_dll	*cpy_a;
+	t_dll	*smallest;
 
-	if(!element_b || !top_b || !top_a)
+	if (!element_b || !top_b || !top_a)
 		return (NULL);
 	instr = NULL;
+	smallest = NULL;
 	cpy_b = ft_dll_cpy(*top_b);
 	cpy_a = ft_dll_cpy(*top_a);
-	ft_execute_and_add(&instr, ft_rt_best_rotation(cpy_b, element_b, 'b'), &cpy_a, &cpy_b);
-	/* if no larger found */
+	ft_execute_and_add(&instr, ft_rt_best_rotation(cpy_b, element_b, 'b'),
+		&cpy_a, &cpy_b);
 	if (ft_rt_smallest_larger(cpy_a, element_b))
-		ft_execute_and_add(&instr, ft_rt_best_rotation(cpy_a, (*ft_rt_smallest_larger(cpy_a, element_b))->content, 'a'), &cpy_a, &cpy_b);
+		ft_execute_and_add(&instr,
+			ft_rt_best_rotation(cpy_a,
+				(*ft_rt_smallest_larger(cpy_a, element_b))->content, 'a'),
+			&cpy_a, &cpy_b);
 	ft_execute_and_add(&instr, ft_dll_new("pa"), &cpy_a, &cpy_b);
-	smallest = (*ft_rt_smallest(cpy_a))->content;
-	ft_execute_and_add(&instr, ft_rt_best_rotation(cpy_a, smallest, 'a'), &cpy_a, &cpy_b);
+	ft_execute_and_add(&instr,
+		ft_rt_best_rotation(cpy_a, (*ft_rt_smallest(cpy_a))->content, 'a'),
+		&cpy_a, &cpy_b);
 	ft_free_dll(&cpy_b);
 	ft_free_dll(&cpy_a);
 	return (instr);
