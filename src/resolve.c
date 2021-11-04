@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/04 09:45:14 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/04 12:03:10 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,27 @@ t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b)
 	ft_free_dll(&cpy_b);
 	ft_free_dll(&cpy_a);
 	return (instr);
+}
+
+/*
+Return the number of instructions necessary
+to place element_b to list a (on its right position)
+
+Requirements:
+-Neither inputs must be null or points to null
+*/
+
+size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b)
+{
+	t_dll	*instr;
+	int		rt;
+
+	if (!a || !*a || !b || !*b || !element_b || !*element_b
+		|| ft_rt_element(*a, (*element_b)->content)
+		|| !ft_rt_element(*b, (*element_b)->content))
+		return (0);
+	instr = ft_rt_place_b_to_a(a, b, (*element_b)->content);
+	rt = ft_dll_size(instr);
+	ft_free_dll(&instr);
+	return (rt);
 }
