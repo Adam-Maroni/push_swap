@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/04 12:04:36 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/04 16:20:48 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ t_dll	**ft_rt_largest(t_dll *dll);
 t_dll	**ft_rt_smallest(t_dll *dll);
 t_dll	**ft_rt_element(t_dll *dll, char *value);
 t_dll	**ft_rt_smallest_larger(t_dll *dll, char *value);
+t_dll	*ft_found_cheapest(t_dll **a, t_dll **b);
 
 /* rotation_tools.c */
 void	ft_fill_rx(t_dll **instr, size_t nb, char stack_indicator);

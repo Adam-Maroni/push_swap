@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:24:43 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/03 12:37:10 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/04 16:19:25 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,31 @@ t_dll	**ft_rt_smallest_larger(t_dll *dll, char *value)
 	if (ft_atoi((*rt)->content) < ft_atoi(value))
 		return (NULL);
 	return (rt);
+}
+
+/*
+This functions goes through the list b 
+and return the element which require
+the lesser number of instruction to be transfer correctly to list a.
+
+Requirements:
+-Neither a nor b must be empty
+*/
+
+t_dll	*ft_found_cheapest(t_dll **a, t_dll **b)
+{
+	t_dll	*tmp;
+	t_dll	*cheapest;
+
+	if (!a || !*a || !b || !*b)
+		return (NULL);
+	cheapest = *b;
+	tmp = (*b)->next;
+	while (tmp != *b)
+	{
+		if (ft_estimate_cost(a, b, &tmp) < ft_estimate_cost(a, b, &cheapest))
+			cheapest = tmp;
+		tmp = tmp->next;
+	}
+	return (cheapest);
 }
