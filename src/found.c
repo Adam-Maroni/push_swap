@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:24:43 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/04 16:19:25 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/05 22:02:43 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ t_dll	**ft_rt_smallest_larger(t_dll *dll, char *value)
 		}
 		tmp = &((*tmp)->next);
 	}
+	if (ft_atoi((*tmp)->content) > ft_atoi(value)
+		&& ft_atoi((*tmp)->content) < smallest_larger)
+		rt = tmp;
 	if (ft_atoi((*rt)->content) < ft_atoi(value))
 		return (NULL);
 	return (rt);
