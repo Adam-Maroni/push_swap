@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:56:23 by amaroni           #+#    #+#             */
-/*   Updated: 2021/10/26 17:03:22 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/05 23:58:48 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ void	ft_dll_delone(t_dll **dll)
 	if (!dll || !(*dll))
 		return ;
 	element = *dll;
+	if (ft_dll_size(*dll) == 1)
+		*dll = NULL;
 	next = element->next;
 	previous = element->previous;
 	element->previous->next = next;
 	element->next->previous = previous;
-	if (*dll != next)
+	if (*dll && *dll != next)
 		*dll = next;
 	free(element->content);
 	free(element);
