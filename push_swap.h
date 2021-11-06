@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/06 01:32:09 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/06 04:03:55 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,9 @@ t_dll	*ft_found_cheapest(t_dll **a, t_dll **b);
 void	ft_fill_rx(t_dll **instr, size_t nb, char stack_indicator);
 void	ft_fill_rrx(t_dll **instr, size_t nb, char stack_indicator);
 t_dll	*ft_rt_best_rotation(t_dll *dll, char *value, char stack_indicator);
+
+/* new.c */
+void	ft_push_swap(int argc, char **argv);
+t_dll	*ft_string_tab_to_list(int argc, char **argv);
+
 #endif
