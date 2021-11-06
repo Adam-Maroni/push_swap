@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/04 16:20:00 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/06 01:44:57 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ to place element_b to list a (on its right position)
 Requirements:
 -Neither inputs must be null or points to null
 */
-
 size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b)
 {
 	t_dll	*instr;
@@ -142,4 +141,33 @@ size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b)
 	rt = ft_dll_size(instr);
 	ft_free_dll(&instr);
 	return (rt);
+}
+
+/* 
+Must push everything from a to b until a is only 3 elements long
+Resolve a if not in order
+found_cheapest of b and push it back to a
+*/
+t_dll	*ft_resolve_for_100(t_dll **a)
+{
+	t_dll	*instr;
+	t_dll	*b;
+	t_dll	*cheapest;
+
+	if (!a || !*a || ft_is_in_order(*a))
+		return (NULL);
+	instr = NULL;
+	b = NULL;
+	while (ft_dll_size(*a) > 3)
+		ft_execute_and_add(&instr, ft_dll_new("pb"), a, &b);
+	if (!ft_is_in_order(*a))
+		ft_execute_and_add(&instr, ft_resolve_for_2_and_3(*a), a, &b);
+	while (ft_dll_size(b) > 0)
+	{
+		cheapest = ft_found_cheapest(a, &b);
+		ft_execute_and_add(&instr, ft_rt_place_b_to_a(a, &b, cheapest->content),
+			a, &b);
+	}
+	ft_free_dll(&b);
+	return (instr);
 }

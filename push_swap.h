@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/04 16:20:48 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/06 01:32:09 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
 t_dll	*ft_resolve_for_4_and_5(t_dll **a);
 t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b);
 size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b);
+t_dll	*ft_resolve_for_100(t_dll **a);
 
 /* found.c */
 t_dll	**ft_rt_largest(t_dll *dll);
