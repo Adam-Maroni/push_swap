@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/06 04:03:55 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/07 21:54:12 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,7 @@ t_dll	*ft_rt_best_rotation(t_dll *dll, char *value, char stack_indicator);
 void	ft_push_swap(int argc, char **argv);
 t_dll	*ft_string_tab_to_list(int argc, char **argv);
 
+/* median.c */
+t_dll	*ft_rt_order_dll(t_dll *dll);
+int		ft_rt_median(t_dll *dll);
 #endif
