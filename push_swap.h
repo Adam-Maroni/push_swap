@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/07 21:54:12 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/08 01:38:31 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void	ft_change_content(t_dll *ptr, char *new);
 void	ft_print_inst_list(t_dll *inst);
 void	ft_execute_instr_list(t_dll **a, t_dll **b, t_dll *instr);
 /* optimize.c */
-t_dll	*ft_clean_instr(t_dll **instr);
-int		ft_is_opposite_instr_adjacent(t_dll *instr);
-char	*ft_combine_instr(t_dll *instr);
+void	ft_clean_instr(t_dll **dll, char *instr1, char *instr2);
+void ft_clean_instr_caller(t_dll **dll);
+char	*ft_dll_to_str(t_dll *dll);
 /* resolve.c */
 t_dll	*ft_resolve_for_2_and_3(t_dll *a);
 int		ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);

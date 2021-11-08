@@ -18,9 +18,9 @@ void	ft_push_swap(int argc, char **argv)
 	//else
 	//	instr = ft_resolve_for_500(a);
 	ft_free_dll(&a);
-	t_dll *new_instr = ft_clean_instr(&instr);
-	ft_print_inst_list(new_instr);
-	ft_free_dll(&new_instr);
+	ft_clean_instr_caller(&instr);
+	ft_print_inst_list(instr);
+	ft_free_dll(&instr);
 }
 
 /*

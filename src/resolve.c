@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/06 01:44:57 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/08 01:53:11 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,13 +153,21 @@ t_dll	*ft_resolve_for_100(t_dll **a)
 	t_dll	*instr;
 	t_dll	*b;
 	t_dll	*cheapest;
+	int		median;
 
 	if (!a || !*a || ft_is_in_order(*a))
 		return (NULL);
 	instr = NULL;
 	b = NULL;
 	while (ft_dll_size(*a) > 3)
-		ft_execute_and_add(&instr, ft_dll_new("pb"), a, &b);
+	{
+		median = ft_rt_median(*a);
+		while (ft_atoi((*ft_rt_smallest(*a))->content) <= median)
+			if (ft_atoi((*a)->content) <= median)
+				ft_execute_and_add(&instr, ft_dll_new("pb"), a, &b);
+			else 
+				ft_execute_and_add(&instr, ft_dll_new("ra"), a, &b);
+	}
 	if (!ft_is_in_order(*a))
 		ft_execute_and_add(&instr, ft_resolve_for_2_and_3(*a), a, &b);
 	while (ft_dll_size(b) > 0)
