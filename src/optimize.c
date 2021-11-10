@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:36:10 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/08 01:48:41 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 19:06:02 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,12 @@ void	ft_clean_instr(t_dll **dll, char *instr1, char *instr2)
 		if (!ft_strncmp(tmp->content, instr1, 4)
 			&& !ft_strncmp(tmp->next->content, instr2, 4))
 		{
-			if (tmp != tmp->next)
+			if (tmp->next != start)
 				ft_dll_delone(&(tmp->next));
+			else
+				break ;
 			ft_dll_delone(&tmp);
-			tmp = start->next;
-			continue ;
+			tmp = start;
 		}
 		tmp = tmp->next;
 	}
@@ -68,7 +69,7 @@ void	ft_clean_instr(t_dll **dll, char *instr1, char *instr2)
 /*
 Call ft_clean_instr with predefined pattern
 */
-void ft_clean_instr_caller(t_dll **dll)
+void	ft_clean_instr_caller(t_dll **dll)
 {
 	if (!dll || !*dll)
 		return ;
@@ -84,6 +85,5 @@ void ft_clean_instr_caller(t_dll **dll)
 	ft_clean_instr(dll, "rrr", "rr");
 	ft_clean_instr(dll, "ss", "ss");
 }
-
 
 //void ft_combo_maker()
