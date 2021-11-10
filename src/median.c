@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:08:43 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/10 16:16:43 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 20:58:36 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ t_dll	*ft_rt_order_dll(t_dll *dll)
 /*
 Get an unordered dll as input, return the median value from that list
 */
-int	ft_rt_median(t_dll *dll)
+int	ft_rt_median(t_dll *dll, size_t scale)
 {
 	t_dll	*ord_dll;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	ord_dll = ft_rt_order_dll(dll);
-	while (++i <= ft_dll_size(ord_dll) / 4)
+	while (++i <= ft_dll_size(ord_dll) / scale)
 		ord_dll = ord_dll->next;
 	i = ft_atoi(ord_dll->content);
 	ft_free_dll(&ord_dll);

@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/10 20:48:18 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 20:54:23 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char	*ft_dll_to_str(t_dll *dll);
 t_dll	*ft_resolve_for_2_and_3(t_dll *a);
 t_dll	*ft_resolve_for_4_and_5(t_dll **a);
 t_dll	*ft_resolve_for_100(t_dll **a);
+t_dll	*ft_resolve_for_500(t_dll **a);
 
 /* found.c */
 t_dll	**ft_rt_largest(t_dll *dll);
@@ -86,5 +87,5 @@ t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b);
 
 /* median.c */
 t_dll	*ft_rt_order_dll(t_dll *dll);
-int		ft_rt_median(t_dll *dll);
+int		ft_rt_median(t_dll *dll, size_t scale);
 #endif
