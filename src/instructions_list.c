@@ -6,13 +6,12 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 18:50:06 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/07 23:45:24 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 21:41:54 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* todel */
 void	ft_print_inst_list(t_dll *inst)
 {
 	t_dll	*start;
