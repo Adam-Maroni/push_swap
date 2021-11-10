@@ -6,7 +6,7 @@
 /*   By: amaroni <amaroni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 20:08:43 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/07 21:53:33 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 16:16:43 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_rt_median(t_dll *dll)
 
 	i = 0;
 	ord_dll = ft_rt_order_dll(dll);
-	while (++i <= ft_dll_size(ord_dll) / 2)
+	while (++i <= ft_dll_size(ord_dll) / 4)
 		ord_dll = ord_dll->next;
 	i = ft_atoi(ord_dll->content);
 	ft_free_dll(&ord_dll);

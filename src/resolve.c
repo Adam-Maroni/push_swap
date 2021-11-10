@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/08 01:53:11 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 15:50:43 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,8 @@ t_dll	*ft_resolve_for_100(t_dll **a)
 		ft_execute_and_add(&instr, ft_resolve_for_2_and_3(*a), a, &b);
 	while (ft_dll_size(b) > 0)
 	{
-		cheapest = ft_found_cheapest(a, &b);
+		cheapest = *ft_rt_largest(b);
+		//cheapest = ft_found_cheapest(a, &b);
 		ft_execute_and_add(&instr, ft_rt_place_b_to_a(a, &b, cheapest->content),
 			a, &b);
 	}
