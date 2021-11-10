@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/08 01:38:31 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/10 20:48:18 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,11 @@ void	ft_print_inst_list(t_dll *inst);
 void	ft_execute_instr_list(t_dll **a, t_dll **b, t_dll *instr);
 /* optimize.c */
 void	ft_clean_instr(t_dll **dll, char *instr1, char *instr2);
-void ft_clean_instr_caller(t_dll **dll);
+void	ft_clean_instr_caller(t_dll **dll);
 char	*ft_dll_to_str(t_dll *dll);
 /* resolve.c */
 t_dll	*ft_resolve_for_2_and_3(t_dll *a);
-int		ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
 t_dll	*ft_resolve_for_4_and_5(t_dll **a);
-t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b);
-size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b);
 t_dll	*ft_resolve_for_100(t_dll **a);
 
 /* found.c */
@@ -83,6 +80,9 @@ t_dll	*ft_rt_best_rotation(t_dll *dll, char *value, char stack_indicator);
 /* new.c */
 void	ft_push_swap(int argc, char **argv);
 t_dll	*ft_string_tab_to_list(int argc, char **argv);
+size_t	ft_estimate_cost(t_dll **a, t_dll **b, t_dll **element_b);
+int		ft_try_instr(t_dll *a, t_dll *b, t_dll *instr);
+t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b);
 
 /* median.c */
 t_dll	*ft_rt_order_dll(t_dll *dll);
