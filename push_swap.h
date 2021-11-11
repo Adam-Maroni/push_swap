@@ -71,7 +71,7 @@ t_dll	**ft_rt_largest(t_dll *dll);
 t_dll	**ft_rt_smallest(t_dll *dll);
 t_dll	**ft_rt_element(t_dll *dll, char *value);
 t_dll	**ft_rt_smallest_larger(t_dll *dll, char *value);
-t_dll	*ft_found_cheapest(t_dll **a, t_dll **b);
+t_dll	*ft_rt_cheapest(t_dll **a, t_dll **b);
 
 /* rotation_tools.c */
 void	ft_fill_rx(t_dll **instr, size_t nb, char stack_indicator);

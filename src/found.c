@@ -112,7 +112,7 @@ Requirements:
 -Neither a nor b must be empty
 */
 
-t_dll	*ft_found_cheapest(t_dll **a, t_dll **b)
+t_dll	*ft_rt_cheapest(t_dll **a, t_dll **b)
 {
 	t_dll	*tmp;
 	t_dll	*cheapest;
