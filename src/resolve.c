@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:33:08 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/10 20:57:04 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/12 11:15:28 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ t_dll	*ft_resolve_for_100(t_dll **a)
 		while (ft_atoi((*ft_rt_smallest(*a))->content) <= median)
 			if (ft_atoi((*a)->content) <= median)
 				ft_execute_and_add(&instr, ft_dll_new("pb"), a, &b);
+		else if (ft_atoi((*a)->previous->content) <= median)
+			ft_execute_and_add(&instr, ft_dll_new("rra"), a, &b);
 		else
 			ft_execute_and_add(&instr, ft_dll_new("ra"), a, &b);
 	}
@@ -119,6 +121,8 @@ t_dll	*ft_resolve_for_500(t_dll **a)
 		while (ft_atoi((*ft_rt_smallest(*a))->content) <= median)
 			if (ft_atoi((*a)->content) <= median)
 				ft_execute_and_add(&instr, ft_dll_new("pb"), a, &b);
+		else if (ft_atoi((*a)->previous->content) <= median)
+			ft_execute_and_add(&instr, ft_dll_new("rra"), a, &b);
 		else
 			ft_execute_and_add(&instr, ft_dll_new("ra"), a, &b);
 	}
