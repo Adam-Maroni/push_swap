@@ -6,7 +6,7 @@
 /*   By: amaroni <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 22:39:41 by amaroni           #+#    #+#             */
-/*   Updated: 2021/11/10 20:54:23 by amaroni          ###   ########.fr       */
+/*   Updated: 2021/11/18 10:24:56 by amaroni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,7 @@ t_dll	*ft_rt_place_b_to_a(t_dll **top_a, t_dll **top_b, char *element_b);
 /* median.c */
 t_dll	*ft_rt_order_dll(t_dll *dll);
 int		ft_rt_median(t_dll *dll, size_t scale);
+
+/* main.c */
+int		main(int argc, char **argv);
 #endif
