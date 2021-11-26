@@ -24,11 +24,11 @@ MIN = 0
 MAX = 99
 INPUT = 565 12 48 32 87 95 6
 
+$(NAME): libft_rule $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT_ARCHIVE)
+
 libft_rule:
 	make -C libft/ all
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT_ARCHIVE)
 
 all: libft_rule $(NAME)
 
