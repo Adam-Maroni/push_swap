@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_ARCHIVE = libft/libft.a
 DEBUG_FLAGS = -fsanitize=address -g
 NAME = push_swap
+HEADER = push_swap.h
 SRC =   src/checking.c\
 	src/dll.c\
 	src/found.c\
@@ -18,7 +19,6 @@ SRC =   src/checking.c\
 	src/rotation_tools.c\
 	src/swap.c\
 	src/main.c
-
 OBJ = $(SRC:.c=.o)
 MIN = 0
 MAX = 99
@@ -26,11 +26,8 @@ INPUT = 565 12 48 32 87 95 6
 
 all: $(NAME)
 
-$(NAME): $(LIBFT_ARCHIVE) $(OBJ)
+$(NAME): $(LIBFT_ARCHIVE) $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT_ARCHIVE)
-
-libft_rule: 
-	make -C libft/ all
 
 $(LIBFT_ARCHIVE): 
 	make -C libft all
@@ -54,6 +51,6 @@ mem_check:
 test_rule: all
 	@ARG=`ruby -e "puts ($(MIN)..$(MAX)).to_a.shuffle.join(' ')"` ; echo $$ARG ;  ./$(NAME) $$ARG | wc -l
 
+.PHONY: all clean fclean re gdb mem_check test_rule
 
-
-
+.DEFAULT: all
